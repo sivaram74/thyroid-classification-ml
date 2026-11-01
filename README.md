@@ -148,5 +148,3 @@ Among the five models, the Decision Tree Classifier achieved the best overall cl
 An interactive Streamlit application was developed and deployed to demonstrate the trained models. It allows users to upload test datasets, select different classifiers, view evaluation metrics and confusion matrices, and download prediction results.
 
 This project demonstrates an end-to-end machine learning workflow, covering data preprocessing, model development, evaluation, application development and cloud deployment.
-
-**Note:** This project is intended for educational purposes and is not intended for medical diagnosis.
