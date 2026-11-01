@@ -77,40 +77,14 @@ The following six evaluation metrics were calculated for all five models:
 
 ### Observations on Model Performance
 
-**Logistic Regression**
-
-Achieved 49.17% accuracy and 0.8938 AUC. It demonstrated reasonable class-ranking performance but relatively weak classification accuracy.
-
-**Decision Tree**
-
-Achieved 91.29% accuracy, 0.9303 AUC and 0.9170 weighted F1 score. It provided the strongest overall classification performance among the five models.
-
-**K-Nearest Neighbors**
-
-Achieved 83.79% accuracy and 0.8221 weighted F1 score. It demonstrated good classification performance, although it performed below the Decision Tree classifier.
-
-**Gaussian Naive Bayes**
-
-Achieved 7.28% accuracy and 0.0565 weighted F1 score. It performed poorly on this dataset compared with the other classification algorithms.
-
-**Support Vector Machine**
-
-Achieved 55.73% accuracy and the highest AUC of 0.9383. It demonstrated strong class-ranking performance but relatively low classification accuracy.
-
-### Overall Winner
-
-The **Decision Tree Classifier** is the overall winner based on accuracy, weighted F1 score and MCC.
-
-Its evaluation results were:
-
-- Accuracy: 91.29%
-- AUC: 0.9303
-- Precision: 0.9227
-- Recall: 0.9129
-- F1 Score: 0.9170
-- MCC: 0.8103
-
-The Decision Tree achieved the highest accuracy, weighted F1 score and MCC among all five models.
+| ML Model Name | Observations about model performance |
+|---|:---|
+| Logistic Regression | Achieved 49.17% accuracy and 0.8938 AUC. It demonstrated reasonable class-ranking performance but relatively weak classification accuracy. |
+| Decision Tree | Achieved 91.29% accuracy, 0.9303 AUC and 0.9170 weighted F1 score. It provided the strongest overall classification performance among the five models. |
+| KNN | Achieved 83.79% accuracy and 0.8221 weighted F1 score. It demonstrated good classification performance, although it performed below the Decision Tree classifier. |
+| Naive Bayes | Achieved 7.28% accuracy and 0.0565 weighted F1 score. It performed poorly on this dataset compared with the other classification algorithms. |
+| Support Vector Machine | Achieved 55.73% accuracy and the highest AUC of 0.9383. It demonstrated strong class-ranking performance but relatively low classification accuracy. |
+| Overall Winner | The Decision Tree Classifier is the overall winner based on accuracy, weighted F1 score and MCC. It achieved the highest accuracy, weighted F1 score and MCC among all five models. <br> •	Accuracy: 91.29% <br> •	AUC: 0.9303 <br> •	Precision: 0.9227 <br> •	Recall: 0.9129 <br> •	F1 Score: 0.9170 <br> •	MCC: 0.8103 <br> |
 
 However, minority-class performance remains a challenge, as indicated by the classification report.
 
