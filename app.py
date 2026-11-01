@@ -442,8 +442,3 @@ st.caption(
     "Machine Learning Assignment 2"
 )
 
-st.warning(
-    "Educational project only. "
-    "This application is not intended "
-    "for medical diagnosis."
-)
