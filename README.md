@@ -10,33 +10,124 @@ An interactive Streamlit web application is also developed to allow users to upl
 
 ## 2. Dataset Description
 
-**Dataset Name:** Thyroid Dataset
+***2.1. Dataset Overview***
 
-**Dataset Source:** [Kaggle – Thyroid Dataset](https://www.kaggle.com/datasets/sikandaraidev/thyroid-dataset)
+For this project, the **Thyroid Dataset** was selected to develop and evaluate multiple machine learning classification models. The dataset was obtained from Kaggle and contains patient-related information that can be used to classify thyroid-related conditions.
 
-**Original Dataset:**
-- 9,171 records
-- 22 input features
-- 1 target variable
-- 9 target classes
+The dataset is suitable for this assignment because it contains more than the required minimum of 500 instances and 12 input features. It provides a multi-class classification problem, allowing the performance of different machine learning algorithms to be compared on the same dataset.
 
-**After data cleaning:**
-- 102 duplicate records removed.
-- 9,069 records retained.
-- 22 input features and 1 target variable.
+****Dataset source:**** [Thyroid Dataset – Kaggle](https://www.kaggle.com/datasets/sikandaraidev/thyroid-dataset)
 
-The dataset contains numerical, categorical and Boolean features.
+***2.2.Dataset Size and Structure***
 
-**Data preprocessing:**
-- Missing numerical values were handled using median imputation.
-- Missing categorical values were handled using most-frequent imputation.
-- Categorical features were converted using One-Hot Encoding.
-- Numerical features were standardized.
+The original dataset contains **9,171 records and 23 columns**.
 
-**Training and Testing Split:**
-- Training data: 80% (7,255 records)
-- Testing data: 20% (1,814 records)
-- Random state: 42
+| Dataset property | Description |
+|---|---|
+| Dataset name | Thyroid Dataset |
+| Data source | Kaggle |
+| Original number of records | 9,171 |
+| Total number of columns | 23 |
+| Number of input features | 22 |
+| Target variable | `class` |
+| Classification type | Multi-class classification |
+| Number of target classes | 9 |
+
+Each row represents one observation, while the columns contain information used by the machine learning models to predict the corresponding target class.
+
+During data preparation, **102 duplicate records were removed**, resulting in a cleaned dataset containing **9,069 records and 23 columns**.
+
+***2.3. Description of Input Features***
+
+The dataset contains 22 input features covering demographic information, thyroid-related measurements, medical indicators, and referral information.
+
+The features can broadly be understood in the following groups:
+
+- ****Demographic information:**** Features such as `age` and `sex` provide basic information about the individual.
+- ****Thyroid-related measurements:**** Features such as `TSH`, `T3`, `TT4`, `T4U`, and `FTI` contain laboratory measurements associated with thyroid function.
+- ****Medical and treatment indicators:**** Several columns represent recorded conditions, symptoms, or treatment-related indicators. These provide additional information that may help distinguish between the target classes.
+- ****Referral information:**** The `referral source` feature records the source from which the observation was referred.
+
+The dataset includes both numerical and categorical information. Some medical indicator columns are represented as Boolean or binary values, while laboratory measurements are numerical.
+
+These different feature types make preprocessing important before applying machine learning algorithms.
+
+***2.4. Target Variable***
+
+The target variable used in this project is ****`class`****.
+
+It represents the category that the machine learning models are expected to predict. Since the target contains ****nine distinct classes****, this project is treated as a multi-class classification problem rather than a binary classification problem.
+
+All five classification algorithms were trained using the same target variable and the same dataset so that their evaluation results could be compared consistently.
+
+***2.5. Data Quality and Missing Values***
+
+The original dataset contained missing values in several columns. Missing observations were particularly present in some demographic and thyroid laboratory measurement fields.
+
+The following columns contained missing values:
+
+- `sex`
+- `TSH`
+- `T3`
+- `TT4`
+- `T4U`
+- `FTI`
+
+A total of ****5,802 missing cells**** were identified during the initial data inspection.
+
+Instead of deleting every row containing a missing value, an imputation approach was used to retain as much useful information as possible:
+
+- ****Numerical features:**** Missing values were replaced using the median of the corresponding feature.
+- ****Categorical features:**** Missing values were replaced using the most frequently occurring category.
+
+Duplicate records were also removed to reduce the possibility of repeated observations affecting model training and evaluation.
+
+***2.6. Data Preprocessing***
+
+Before training the classification models, the dataset was prepared using a preprocessing pipeline.
+
+The following steps were performed:
+
+1. ****Duplicate removal:**** Duplicate rows were identified and removed, reducing the dataset from 9,171 to 9,069 records.
+2. ****Feature and target separation:**** The 22 input features were separated from the target column, `class`.
+3. ****Train-test split:**** The cleaned dataset was divided into training and testing subsets using an 80:20 ratio.
+4. ****Missing-value imputation:**** Median imputation was applied to numerical features, while most-frequent-value imputation was applied to categorical features.
+5. ****Categorical encoding:**** One-Hot Encoding was used to convert categorical variables into a numerical representation suitable for machine learning algorithms.
+6. ****Feature scaling:**** Standardization was applied to numerical features so that differences in measurement scales would not disproportionately influence algorithms such as K-Nearest Neighbors, Logistic Regression, and Support Vector Machine.
+
+The train-test split was performed with `random_state=42` to make the experiment reproducible.
+
+| Data split | Number of records | Percentage |
+|---|---:|---:|
+| Training data | 7,255 | 80% |
+| Testing data | 1,814 | 20% |
+| **Total** | **9,069** | **100%** |
+
+The preprocessing steps were fitted using the training data and then applied to the testing data. This helps prevent information from the test set from influencing the training process.
+
+***2.7. Why This Dataset Was Selected***
+
+The Thyroid Dataset was selected for the following reasons:
+
+- It satisfies the assignment requirements for the minimum number of records and input features.
+- It provides a multi-class classification problem, making it useful for comparing different classification algorithms.
+- It contains a combination of numerical, categorical, and Boolean features, allowing different preprocessing techniques to be demonstrated.
+- It includes missing values, providing an opportunity to implement and demonstrate data-cleaning and imputation techniques.
+- It is suitable for evaluating different machine learning algorithms using common classification metrics.
+
+***2.8. Dataset Usage in This Project***
+
+The cleaned and preprocessed dataset was used to train the following five classification models:
+
+1. Logistic Regression
+2. Decision Tree Classifier
+3. K-Nearest Neighbor Classifier
+4. Gaussian Naive Bayes Classifier
+5. Support Vector Machine
+
+All five models were trained and evaluated using the same training and testing split. Their performance was compared using Accuracy, AUC Score, Precision, Recall, F1 Score, and Matthews Correlation Coefficient (MCC).
+
+The trained models were saved and integrated into the Streamlit application. The application allows users to upload a test CSV file, select a classification model, and view its evaluation metrics and confusion matrix without retraining the model.
 
 ## 3. GitHub Repository Link
 
